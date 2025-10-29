@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вінницький національний технічний університет</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            margin: 1.5rem 0;
+        }
+
+        .logo {
+            height: 120px;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.2));
+        }
+
+        .nav-container {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #f0f5ff;
+            color: #003d82;
+        }
+
+        section {
+            padding: 4rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #0056b3;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #0056b3;
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .faculties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .faculty-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .faculty-card h3 {
+            color: #0056b3;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0056b3;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-details, .map-container {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-details p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-details i {
+            margin-right: 10px;
+            color: #0056b3;
+            width: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .apply-button {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .apply-button:hover {
+            background-color: #003d82;
+        }
+
+        .why-choose {
+            background-color: #f0f5ff;
+            padding: 3rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .why-choose h3 {
+            color: #0056b3;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .why-choose ul {
+            list-style-type: none;
+        }
+
+        .why-choose li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .why-choose li:before {
+            content: "✓";
+            color: #0056b3;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .future-cars {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .future-cars h3 {
+            color: #0056b3;
+            margin-bottom: 1.5rem;
+        }
+
+        .car-image {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #003d82;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .social-links {
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+            }
+            
+            nav a {
+                padding: 0.8rem 1rem;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <!-- Логотип університету -->
+                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#0056b3" />
+                    <text x="50" y="55" text-anchor="middle" fill="white" font-size="14" font-weight="bold">ВНТУ</text>
+                </svg>
+            </div>
+            <h1>Вінницький національний технічний університет</h1>
+            <p class="subtitle">Освіта, наука, інновації - основа майбутнього</p>
+        </div>
+    </header>
+
+    <div class="nav-container">
+        <nav>
+            <a href="#about">Про університет</a>
+            <a href="#faculties">Факультети</a>
+            <a href="#admission">Вступ</a>
+            <a href="#why">Чому ВНТУ?</a>
+            <a href="#contacts">Контакти</a>
+        </nav>
+    </div>
+
+    <section id="about">
+        <h2 class="section-title">Про університет</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Вінницький національний технічний університет - один з провідних технічних вищих навчальних закладів України, що поєднує багаторічні традиції з сучасними освітніми технологіями.</p>
+                <p>Університет був заснований у 1960 році і за роки свого існування став потужним науково-освітнім центром, що готує фахівців технічних спеціальностей.</p>
+                <p>Сьогодні університет об'єднує 8 факультетів, 40 кафедр, навчається понад 8000 студентів, з них понад 500 іноземних громадян.</p>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Факультетів</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8000+</div>
+                        <div class="stat-label">Студентів</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">60+</div>
+                        <div class="stat-label">Років історії</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <!-- Фото IT-студентів ФІІТА -->
+                <img src="https://avto.proverka.com.ua/wp-content/uploads/2024/04/najdorozhcha-mashyna-v-sviti.jpg" alt="Студенти ФІІТА ВНТУ" class="car-image">
+                <p style="text-align: center; margin-top: 10px; font-style: italic;">Майбутні автомобілі студентів ФІІТА</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faculties" style="background-color: #f0f5ff;">
+        <h2 class="section-title">Факультети та інститути</h2>
+        <div class="faculties-grid">
+            <div class="faculty-card">
+                <h3>Факультет інформаційних технологій та комп'ютерної інженерії (ФІІТА)</h3>
+                <p>Підготовка фахівців у галузі програмування, кібербезпеки, штучного інтелекту та комп'ютерних систем.</p>
+            </div>
+            <div class="faculty-card">
+                <h3>Факультет електроенергетики та електромеханіки</h3>
+                <p>Підготовка фахівців з електроенергетики, електромеханіки та автоматики.</p>
+            </div>
+            <div class="faculty-card">
+                <h3>Факультет машинобудування та транспорту</h3>
+                <p>Підготовка інженерів-механіків, автомобілістів та транспортних логістів.</p>
+            </div>
+            <div class="faculty-card">
+                <h3>Факультет будівництва та цивільної інженерії</h3>
+                <p>Підготовка будівельників, архітекторів та дизайнерів.</p>
+            </div>
+            <div class="faculty-card">
+                <h3>Факультет економіки та менеджменту</h3>
+                <p>Підготовка економістів, менеджерів та маркетологів.</p>
+            </div>
+            <div class="faculty-card">
+                <h3>Факультет харчових технологій</h3>
+                <p>Підготовка фахівців з харчових технологій та біотехнологій.</p>
+            </div>
+            <div class="faculty-card">
+                <h3>Факультет хімічних технологій</h3>
+                <p>Підготовка хіміків-технологів та екологів.</p>
+            </div>
+            <div class="faculty-card">
+                <h3>Факультет інформаційно-вимірювальної техніки</h3>
+                <p>Підготовка фахівців з інформаційно-вимірювальної техніки та метрології.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="admission">
+        <h2 class="section-title">Вступна кампанія</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Вінницький національний технічний університет проводить набір на рівні бакалавра, магістра та аспірантури.</p>
+                <p>Для вступу необхідно подати такі документи:</p>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li>Заява на ім'я ректора</li>
+                    <li>Документ про попередню освіту (оригінал та копія)</li>
+                    <li>Копія паспорта та ідентифікаційного коду</li>
+                    <li>Фотографії 3x4 см (4 шт.)</li>
+                    <li>Медична довідка форми 086-У</li>
+                </ul>
+                <p>Терміни подачі документів: з 1 липня по 22 липня.</p>
+                <p>Детальну інформацію можна отримати в приймальній комісії університету.</p>
+                
+                <a href="https://vstup.edbo.gov.ua/" class="apply-button" target="_blank">Подати заявку онлайн</a>
+            </div>
+            <div class="about-image">
+                <!-- Зображення для вступної кампанії -->
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="400" height="300" fill="#e0e0e0" />
+                    <rect x="50" y="50" width="300" height="200" rx="10" fill="#ffffff" stroke="#0056b3" stroke-width="2" />
+                    <rect x="80" y="80" width="240" height="40" fill="#0056b3" />
+                    <text x="200" y="105" text-anchor="middle" fill="white" font-size="16" font-weight="bold">ВСТУПНА КАМПАНІЯ</text>
+                    <rect x="100" y="140" width="200" height="30" fill="#f0f5ff" stroke="#0056b3" stroke-width="1" />
+                    <text x="200" y="160" text-anchor="middle" fill="#333" font-size="14">1 ЛИПНЯ - 22 ЛИПНЯ</text>
+                    <rect x="150" y="190" width="100" height="40" rx="5" fill="#0056b3" />
+                    <text x="200" y="215" text-anchor="middle" fill="white" font-size="14">ПОДАТИ ЗАЯВУ</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section id="why">
+        <h2 class="section-title">Чому саме ВНТУ?</h2>
+        <div class="why-choose">
+            <h3>10 причин обрати Вінницький національний технічний університет</h3>
+            <ul>
+                <li>Понад 60 років академічних традицій та досвіду</li>
+                <li>Сучасні освітні програми, адаптовані до потреб ринку праці</li>
+                <li>Висококваліфікований професорсько-викладацький склад</li>
+                <li>Міжнародне співробітництво та можливості для навчання за кордоном</li>
+                <li>Сучасна матеріально-технічна база та лабораторії</li>
+                <li>Активне студентське життя: гуртки, секції, творчі колективи</li>
+                <li>Підтримка студентських стартапів та наукових досліджень</li>
+                <li>Програми подвійних дипломів з європейськими університетами</li>
+                <li>Цілодобовий доступ до електронних бібліотечних ресурсів</li>
+                <li>Високий відсоток працевлаштування випускників</li>
+            </ul>
+        </div>
+        
+        <div class="future-cars">
+            <h3>Майбутні автомобілі наших випускників</h3>
+            <p>Наші студенти ФІІТА не тільки вивчають програмування, але й розробляють інноваційні технології для майбутніх автомобілів.</p>
+            <p>Після закінчення ВНТУ наші випускники можуть собі дозволити найсучасніші та найінноваційніші автомобілі, розроблені за їх участю!</p>
+        </div>
+    </section>
+
+    <section id="contacts" style="background-color: #f0f5ff;">
+        <h2 class="section-title">Контактна інформація</h2>
+        <div class="contact-info">
+            <div class="contact-details">
+                <p><i>📍</i> 21021, м. Вінниця, вул. Хмельницьке шосе, 95</p>
+                <p><i>📞</i> +380 68 336 79 22 (приймальна комісія)</p>
+                <p><i>📞</i> +380 66 818 72 78 (приймальна комісія)</p>
+                <p><i>📞</i> +380 96 079 44 75 (приймальна комісія)</p>
+                <p><i>📧</i> info@vntu.edu.ua</p>
+                <p><i>🌐</i> <a href="https://vntu.edu.ua/" target="_blank">www.vntu.edu.ua</a></p>
+                <p><i>🕒</i> Пн-Пт: 8:00 - 17:00</p>
+            </div>
+            <div class="map-container">
+                <!-- Карта Google Maps з розташуванням університету -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2603.195899999999!2d28.4080483!3d49.234676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472d5c593f204b17%3A0x174044ed5c936b51!2sBuilding%20%231%20VNTU!5e0!3m2!1sen!2sua!4v1698765432100!5m2!1sen!2sua" 
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>Вінницький національний технічний університет</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="YouTube">📺</a>
+                <a href="#" aria-label="Telegram">✈️</a>
+            </div>
+            <p class="copyright">© 2023 Вінницький національний технічний університет. Всі права захищені.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Плавна прокрутка до секцій при кліку на посилання в навігації
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Анімація появи елементів при скролі
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Додаємо анімацію для карток факультетів
+        document.querySelectorAll('.faculty-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // Додаємо анімацію для секцій
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
